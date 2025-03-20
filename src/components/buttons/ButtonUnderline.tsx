@@ -37,7 +37,7 @@ const ButtonUnderline = ({
       onMouseOver={handleHover}
       onClick={onClick}
       ref={scope}
-      className="w-fit overflow-hidden"
+      className="w-fit overflow-hidden cursor-pointer"
     >
       <div className={`relative text-lg text-white ${className}`}>
         {children}
