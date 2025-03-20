@@ -1,7 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
 
+interface PositionTypes {
+  x: Number;
+  y: Number;
+}
+
 export const useMousePosition = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<PositionTypes>({ x: 0, y: 0 });
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     setPosition({ x: e.clientX, y: e.clientY });

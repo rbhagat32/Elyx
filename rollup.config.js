@@ -5,7 +5,7 @@ export default defineConfig({
   input: "src/index.ts",
   output: {
     dir: "dist",
-    format: "es",
+    format: "esm",
     name: "elyx",
   },
   external: ["react", "react-dom"],

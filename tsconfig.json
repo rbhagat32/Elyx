@@ -7,5 +7,9 @@
         "strict": true,
         "declaration": true,
         "declarationDir": "./dist/index.d.ts",
-    }
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "outDir": "dist"
+    },  
+
 }
