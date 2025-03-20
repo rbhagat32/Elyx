@@ -1,16 +1,14 @@
 import { useEffect, useRef } from "react";
 
-export const useInterval = (fn: () => void, timeout: number) => {
+const useInterval = (fn: () => void, timeout: number) => {
   const savedCallback = useRef<() => void | null>(null);
 
-  // Store the latest function in a ref to avoid stale closures
   useEffect(() => {
     savedCallback.current = fn;
   }, [fn]);
 
   useEffect(() => {
-    if (typeof timeout !== "number" || timeout <= 0) return; // Guard against invalid timeout values
-
+    if (typeof timeout !== "number" || timeout <= 0) return;
     const interval = setInterval(() => {
       if (savedCallback.current) savedCallback.current();
     }, timeout * 1000);
@@ -18,3 +16,5 @@ export const useInterval = (fn: () => void, timeout: number) => {
     return () => clearInterval(interval);
   }, [timeout]);
 };
+
+export { useInterval };

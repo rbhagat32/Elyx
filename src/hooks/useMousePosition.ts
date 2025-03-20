@@ -5,7 +5,7 @@ interface PositionTypes {
   y: Number;
 }
 
-export const useMousePosition = () => {
+const useMousePosition = () => {
   const [position, setPosition] = useState<PositionTypes>({ x: 0, y: 0 });
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -21,3 +21,5 @@ export const useMousePosition = () => {
 
   return position;
 };
+
+export { useMousePosition };

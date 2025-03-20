@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
 
-export const useDimension = () => {
+const useDimension = () => {
   const isClient = typeof window !== "undefined";
 
-  const [width, setWidth] = useState(isClient ? window.innerWidth : 0);
-  const [height, setHeight] = useState(isClient ? window.innerHeight : 0);
+  const [width, setWidth] = useState<Number>(isClient ? window.innerWidth : 0);
+  const [height, setHeight] = useState<Number>(
+    isClient ? window.innerHeight : 0
+  );
 
   const handleResize = useCallback(() => {
     requestAnimationFrame(() => {
@@ -22,3 +24,5 @@ export const useDimension = () => {
 
   return { width, height };
 };
+
+export { useDimension };
