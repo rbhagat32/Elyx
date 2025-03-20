@@ -11,6 +11,10 @@
   "author": "Raghav Bhagat",
   "license": "ISC",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rbhagat32/Elyx.git"
+  },
   "dependencies": {
     "motion": "^12.5.0"
   },

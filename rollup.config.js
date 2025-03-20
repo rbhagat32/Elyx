@@ -8,6 +8,6 @@ export default defineConfig({
     format: "esm",
     name: "elyx",
   },
-  external: ["react", "react-dom", "motion/react"],
+  external: ["react", "react-dom", "motion", "motion/react"],
   plugins: [typescript({ tsconfig: "tsconfig.json" })],
 });

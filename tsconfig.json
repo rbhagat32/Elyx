@@ -6,7 +6,7 @@
         "jsx": "react",
         "strict": true,
         "declaration": true,
-        "declarationDir": "./dist/index.d.ts",
+        "declarationDir": "dist",
         "outDir": "dist"
     },  
 
