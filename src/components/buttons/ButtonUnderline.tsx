@@ -39,7 +39,9 @@ const ButtonUnderline = ({
       ref={scope}
       className="w-fit overflow-hidden"
     >
-      <div className={`relative text-lg bg-white ${className}`}>{children}</div>
+      <div className={`relative text-lg text-white ${className}`}>
+        {children}
+      </div>
       <div
         ref={lineRef}
         className={`relative left-[-100%] ${lineThickenss} w-full ${lineColor} pointer-events-none`}
