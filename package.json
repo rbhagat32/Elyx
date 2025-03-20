@@ -1,0 +1,24 @@
+{
+  "name": "elyx",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "npx rollup -c"
+  },
+  "keywords": [],
+  "author": "Raghav Bhagat",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "motion": "^12.5.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/react": "^19.0.12",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "rollup": "^4.36.0",
+    "tslib": "^2.8.1"
+  }
+}
