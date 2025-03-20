@@ -9,7 +9,7 @@ export default defineConfig({
     format: "esm",
     name: "elyx",
   },
-  external: ["react", "react-dom", "motion", "motion/react"],
+  external: ["react", "react-dom", "motion", "motion/react", "react-icons/io"],
   plugins: [
     typescript({ tsconfig: "tsconfig.json" }),
     postcss({ modules: true }),
