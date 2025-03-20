@@ -9,5 +9,5 @@
         "declarationDir": "dist",
         "outDir": "dist"
     },  
-
+    "include": ["src", "src/global.d.ts"]
 }
