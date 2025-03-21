@@ -29,7 +29,7 @@ export default function Button({
   ) : (
     <button
       onClick={onClick}
-      className="group/btn relative cursor-pointer overflow-hidden h-[42px] w-fit flex flex-col items-center rounded-full bg-transparent border text-zinc-100 text-black font-bold shadow-lg shadow-zinc-400"
+      className="group/btn relative cursor-pointer overflow-hidden h-[42px] w-fit flex flex-col items-center rounded-full bg-transparent border text-zinc-100 text-black font-bold"
     >
       <div className="w-full h-[42px] group-hover/btn:-translate-y-[40px] px-5 py-2 transition-all duration-300 ease-in-out">
         {children}
