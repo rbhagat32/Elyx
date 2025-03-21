@@ -19,6 +19,7 @@ export default function Button({ children, onClick }: PropTypes) {
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      className="bg-zinc-900 px-4 py-2 text-white"
     >
       {children}
     </button>
