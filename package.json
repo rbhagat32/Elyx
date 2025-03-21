@@ -1,6 +1,6 @@
 {
   "name": "elyx",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "type": "module",
   "main": "dist/cjs/index.js",
