@@ -1,31 +1,42 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { cn } from "../../utils/cn";
 
 interface PropTypes extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "solid" | "outline";
   size?: "sm" | "md" | "lg";
 }
 
 const buttonStyles = {
-  base: "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300",
+  base: "group/btn relative cursor-pointer overflow-hidden font-bold rounded-full shadow-md shadow-zinc-400",
   variants: {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 disabled:bg-blue-400",
-    secondary: "bg-gray-600 text-white hover:bg-gray-700 disabled:bg-gray-400",
-    outline:
-      "border border-gray-300 text-gray-700 hover:bg-gray-100 disabled:text-gray-400 disabled:border-gray-200",
+    solid: "bg-white text-black",
+    outline: "bg-zinc-900 border-2 border-white text-white",
   },
   sizes: {
-    sm: "px-4 py-2 text-sm",
-    md: "px-4 py-2 text-base",
-    lg: "px-6 py-3 text-lg",
+    sm: "px-5 py-2 text-sm",
+    md: "px-7 py-2.5 text-base",
+    lg: "px-8 py-3 text-lg",
   },
 };
 
 const Button = React.forwardRef<HTMLButtonElement, PropTypes>(
-  (
-    { children, variant = "primary", size = "md", className, ...props },
-    ref
-  ) => {
+  ({ children, variant = "solid", size = "md", className, ...props }, ref) => {
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+
+    const innerStyles = useMemo(
+      () => ({
+        base: `${
+          !props.disabled &&
+          "group-hover/btn:-translate-y-[100%] transition-all duration-300"
+        }`,
+        variants: {
+          solid: `${isHovered ? "text-white" : "text-black"}`,
+          outline: `${isHovered ? "text-black" : "text-white"}`,
+        },
+      }),
+      [isHovered, props.disabled]
+    );
+
     return (
       <button
         ref={ref}
@@ -37,9 +48,29 @@ const Button = React.forwardRef<HTMLButtonElement, PropTypes>(
           props.disabled && "cursor-not-allowed",
           className
         )}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         {...props}
       >
-        {children}
+        <div
+          className={cn(
+            innerStyles.base,
+            innerStyles.variants[variant],
+            className
+          )}
+        >
+          {children}
+        </div>
+        <div
+          className={cn(
+            "absolute",
+            innerStyles.base,
+            innerStyles.variants[variant === "solid" ? "outline" : "solid"],
+            className
+          )}
+        >
+          {children}
+        </div>
       </button>
     );
   }
